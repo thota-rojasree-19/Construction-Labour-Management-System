@@ -40,4 +40,44 @@ app.get('/api/v1/health', (req, res) => {
     res.status(200).json({ status: 'OK', message: 'CLMS Backend running smoothly' });
 });
 
+app.get('/api/v1/test-email', async (req, res) => {
+    const nodemailer = require('nodemailer');
+    const emailUser = process.env.EMAIL_USER || 'sreeroja004@gmail.com';
+    const emailPass = process.env.EMAIL_PASS ? process.env.EMAIL_PASS.replace(/\s+/g, '') : '';
+    
+    const transporter = nodemailer.createTransport({
+        host: 'smtp.gmail.com',
+        port: 587,
+        secure: false,
+        family: 4,
+        auth: {
+            user: emailUser,
+            pass: emailPass
+        },
+        tls: {
+            rejectUnauthorized: false
+        }
+    });
+
+    try {
+        await transporter.verify();
+        await transporter.sendMail({
+            from: `Smart-Connect CLMS <${emailUser}>`,
+            to: 'rojii3824@gmail.com',
+            subject: 'Test Email from Render Server',
+            text: 'This is a test email to verify that Render can send emails.'
+        });
+        res.status(200).json({ success: true, message: 'SMTP connection verified and test email sent.' });
+    } catch (err) {
+        res.status(500).json({ 
+            success: false, 
+            error: err.message, 
+            code: err.code,
+            stack: err.stack,
+            envUser: emailUser,
+            envPassLength: emailPass ? emailPass.length : 0
+        });
+    }
+});
+
 module.exports = app;
