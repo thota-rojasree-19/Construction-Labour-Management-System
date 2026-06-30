@@ -1,0 +1,261 @@
+/* Attendance Module Custom Styling */
+
+.attendance-filters-panel {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 24px;
+    box-shadow: var(--shadow-sm);
+}
+
+.attendance-calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.attendance-calendar-day-header {
+    text-align: center;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    padding: 8px 0;
+}
+
+.attendance-calendar-cell {
+    aspect-ratio: 1;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    background-color: var(--card-bg);
+}
+
+.attendance-calendar-cell:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+    border-color: var(--primary);
+}
+
+.attendance-calendar-cell.other-month {
+    opacity: 0.3;
+    cursor: default;
+}
+
+.attendance-calendar-cell.status-present {
+    background-color: rgba(34, 197, 94, 0.1);
+    border-color: rgba(34, 197, 94, 0.3);
+    color: #15803d;
+}
+
+.attendance-calendar-cell.status-absent {
+    background-color: rgba(239, 68, 68, 0.1);
+    border-color: rgba(239, 68, 68, 0.3);
+    color: #b91c1c;
+}
+
+.attendance-calendar-cell.status-halfday {
+    background-color: rgba(245, 158, 11, 0.1);
+    border-color: rgba(245, 158, 11, 0.3);
+    color: #b45309;
+}
+
+.attendance-calendar-cell.status-leave {
+    background-color: rgba(37, 99, 235, 0.1);
+    border-color: rgba(37, 99, 235, 0.3);
+    color: #1d4ed8;
+}
+
+.attendance-calendar-cell.status-holiday {
+    background-color: rgba(100, 116, 139, 0.1);
+    border-color: rgba(100, 116, 139, 0.3);
+    color: #475569;
+}
+
+.attendance-calendar-cell.status-siteclosed {
+    background-color: rgba(15, 23, 42, 0.08);
+    border-color: rgba(15, 23, 42, 0.15);
+    color: #0f172a;
+}
+
+/* Status Chips */
+.status-chip {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 30px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border: 1px solid transparent;
+}
+
+.status-chip.present {
+    background-color: rgba(34, 197, 94, 0.12);
+    border-color: rgba(34, 197, 94, 0.2);
+    color: var(--success);
+}
+
+.status-chip.absent {
+    background-color: rgba(239, 68, 68, 0.12);
+    border-color: rgba(239, 68, 68, 0.2);
+    color: var(--danger);
+}
+
+.status-chip.half-day {
+    background-color: rgba(245, 158, 11, 0.12);
+    border-color: rgba(245, 158, 11, 0.2);
+    color: var(--warning);
+}
+
+.status-chip.leave {
+    background-color: rgba(37, 99, 235, 0.12);
+    border-color: rgba(37, 99, 235, 0.2);
+    color: var(--accent);
+}
+
+.status-chip.holiday {
+    background-color: rgba(100, 116, 139, 0.12);
+    border-color: rgba(100, 116, 139, 0.2);
+    color: var(--text-muted);
+}
+
+.status-chip.site-closed {
+    background-color: rgba(15, 23, 42, 0.08);
+    border-color: rgba(15, 23, 42, 0.15);
+    color: var(--text-main);
+}
+
+/* Action Radio Buttons for Attendance */
+.attendance-radio-group {
+    display: flex;
+    gap: 4px;
+}
+
+.attendance-radio-btn {
+    border: 1px solid var(--border-color);
+    background-color: var(--card-bg);
+    color: var(--text-muted);
+    font-size: 11px;
+    font-weight: 600;
+    padding: 6px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    user-select: none;
+    text-align: center;
+}
+
+.attendance-radio-btn:hover {
+    background-color: var(--background);
+    color: var(--text-main);
+}
+
+.attendance-radio-btn.active.present {
+    background-color: var(--success);
+    color: white;
+    border-color: var(--success);
+}
+
+.attendance-radio-btn.active.absent {
+    background-color: var(--danger);
+    color: white;
+    border-color: var(--danger);
+}
+
+.attendance-radio-btn.active.halfday {
+    background-color: var(--warning);
+    color: white;
+    border-color: var(--warning);
+}
+
+.attendance-radio-btn.active.leave {
+    background-color: var(--accent);
+    color: white;
+    border-color: var(--accent);
+}
+
+/* Profiles timeline */
+.attendance-timeline-list {
+    position: relative;
+    padding-left: 24px;
+}
+
+.attendance-timeline-list::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 8px;
+    bottom: 8px;
+    width: 2px;
+    background-color: var(--border-color);
+}
+
+.attendance-timeline-node {
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.attendance-timeline-node:last-child {
+    padding-bottom: 0;
+}
+
+.attendance-timeline-dot {
+    position: absolute;
+    left: -22px;
+    top: 6px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--border-color);
+    border: 2.5px solid var(--card-bg);
+}
+
+.attendance-timeline-node.present .attendance-timeline-dot {
+    background-color: var(--success);
+}
+.attendance-timeline-node.absent .attendance-timeline-dot {
+    background-color: var(--danger);
+}
+.attendance-timeline-node.halfday .attendance-timeline-dot {
+    background-color: var(--warning);
+}
+
+.attendance-timeline-body {
+    background-color: var(--background);
+    border-radius: 8px;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+}
+
+/* Bulk Mark Row Selection */
+.bulk-worker-row {
+    transition: background-color var(--transition-fast);
+}
+
+.bulk-worker-row.selected {
+    background-color: var(--primary-light);
+}
+
+.bulk-toolbar-fixed {
+    position: sticky;
+    bottom: 0;
+    background-color: var(--card-bg);
+    border-top: 1px solid var(--border-color);
+    padding: 16px 24px;
+    box-shadow: 0 -4px 15px rgba(0,0,0,0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 0 0 16px 16px;
+    z-index: 10;
+}

@@ -1,0 +1,106 @@
+/* Site Reports Module CSS Styling */
+
+.report-status-badge {
+    font-size: 11px;
+    font-weight: 700;
+    padding: 6px 12px;
+    border-radius: 30px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    text-transform: uppercase;
+}
+
+.report-status-badge.draft {
+    background-color: rgba(100, 116, 139, 0.12);
+    border-color: rgba(100, 116, 139, 0.2);
+    color: var(--text-muted);
+}
+
+.report-status-badge.submitted {
+    background-color: rgba(34, 197, 94, 0.12);
+    border-color: rgba(34, 197, 94, 0.2);
+    color: var(--success);
+}
+
+/* Vertical Project chronological reports timeline */
+.project-rep-timeline {
+    position: relative;
+    padding-left: 24px;
+}
+
+.project-rep-timeline::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 8px;
+    bottom: 8px;
+    width: 2px;
+    background-color: var(--border-color);
+}
+
+.timeline-node-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-fast);
+}
+
+.timeline-node-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Photo gallery documentation styles */
+.photo-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 16px;
+    margin-top: 12px;
+}
+
+.gallery-photo-item {
+    position: relative;
+    aspect-ratio: 4/3;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    background-color: var(--background);
+}
+
+.gallery-photo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-fast);
+}
+
+.gallery-photo-item:hover img {
+    transform: scale(1.05);
+}
+
+/* Issues cards warnings */
+.issue-warning-card {
+    background-color: rgba(239, 68, 68, 0.08);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    border-radius: 8px;
+    padding: 12px;
+    color: var(--danger);
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 12px;
+}
+
+.delay-warning-card {
+    background-color: rgba(245, 158, 11, 0.08);
+    border: 1px solid rgba(245, 158, 11, 0.2);
+    border-radius: 8px;
+    padding: 12px;
+    color: var(--warning);
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 12px;
+}

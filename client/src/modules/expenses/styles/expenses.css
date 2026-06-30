@@ -1,0 +1,103 @@
+/* Expense Module CSS Style rules */
+
+.category-badge {
+    font-size: 11px;
+    font-weight: 700;
+    padding: 6px 12px;
+    border-radius: 30px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    text-transform: uppercase;
+}
+
+/* Predefined Categories Tones */
+.category-badge.materials { background-color: rgba(249, 115, 22, 0.12); color: var(--primary); border: 1px solid rgba(249, 115, 22, 0.2); }
+.category-badge.labour { background-color: rgba(37, 99, 235, 0.12); color: var(--accent); border: 1px solid rgba(37, 99, 235, 0.2); }
+.category-badge.transport { background-color: rgba(13, 148, 136, 0.12); color: #0d9488; border: 1px solid rgba(13, 148, 136, 0.2); }
+.category-badge.machinery { background-color: rgba(168, 85, 247, 0.12); color: #a855f7; border: 1px solid rgba(168, 85, 247, 0.2); }
+.category-badge.fuel { background-color: rgba(234, 179, 8, 0.12); color: #eab308; border: 1px solid rgba(234, 179, 8, 0.2); }
+.category-badge.utilities { background-color: rgba(236, 72, 153, 0.12); color: #ec4899; border: 1px solid rgba(236, 72, 153, 0.2); }
+.category-badge.safetyequipment { background-color: rgba(239, 68, 68, 0.12); color: var(--danger); border: 1px solid rgba(239, 68, 68, 0.2); }
+.category-badge.food { background-color: rgba(20, 184, 166, 0.12); color: #14b8a6; border: 1px solid rgba(20, 184, 166, 0.2); }
+.category-badge.equipmentrental { background-color: rgba(79, 70, 229, 0.12); color: #4f46e5; border: 1px solid rgba(79, 70, 229, 0.2); }
+.category-badge.accommodation { background-color: rgba(120, 113, 108, 0.12); color: #78716c; border: 1px solid rgba(120, 113, 108, 0.2); }
+.category-badge.maintenance { background-color: rgba(99, 102, 241, 0.12); color: #6366f1; border: 1px solid rgba(99, 102, 241, 0.2); }
+.category-badge.miscellaneous { background-color: rgba(100, 116, 139, 0.12); color: var(--text-muted); border: 1px solid rgba(100, 116, 139, 0.2); }
+
+/* Form steps styling */
+.form-step-container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.form-step-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: var(--shadow-sm);
+}
+
+.form-step-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 12px;
+}
+
+/* Budget tracking widget */
+.budget-util-card {
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 20px;
+    background-color: var(--card-bg);
+    transition: all var(--transition-fast);
+}
+
+.budget-util-card.warning-exceeded {
+    border-color: var(--danger);
+    background-color: rgba(239, 68, 68, 0.02);
+    box-shadow: 0 0 15px rgba(239, 68, 68, 0.08);
+}
+
+.budget-warning-alert {
+    background-color: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    color: var(--danger);
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.receipt-preview-frame {
+    border: 2px dashed var(--border-color);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    background-color: var(--background);
+    transition: all var(--transition-fast);
+}
+
+.receipt-preview-frame:hover {
+    border-color: var(--primary);
+}
+
+.receipt-file-display {
+    max-width: 100%;
+    max-height: 280px;
+    border-radius: 8px;
+    object-fit: contain;
+    box-shadow: var(--shadow-sm);
+}
