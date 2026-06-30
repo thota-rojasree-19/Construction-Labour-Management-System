@@ -19,7 +19,7 @@ const register = async (req, res) => {
         });
 
         res.status(200).json({
-            message: 'Registration request received. Verification OTP sent to email address.',
+            message: 'Registration successful. You can now login.',
             email: result.email
         });
     } catch (error) {

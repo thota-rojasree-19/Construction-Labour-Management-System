@@ -20,26 +20,22 @@ const register = async (userData) => {
         // If user exists but is not verified, we let them overwrite and retry registration
         const salt = await bcrypt.genSalt(10);
         const hashedPassword = await bcrypt.hash(password, salt);
-        const otp = generateOTP();
-        const otpExpires = new Date(Date.now() + 10 * 60 * 1000); // 10 minutes
 
         user.companyName = companyName;
         user.fullName = fullName;
         user.mobile = mobile;
         user.password = hashedPassword;
         user.role = role || 'Company Admin';
-        user.otp = otp;
-        user.otpExpires = otpExpires;
+        user.isVerified = true;
+        user.otp = null;
+        user.otpExpires = null;
 
         await user.save();
-        await sendOTPEmail(email, otp, 'register');
         return { email };
     }
 
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
-    const otp = generateOTP();
-    const otpExpires = new Date(Date.now() + 10 * 60 * 1000); // 10 minutes
 
     user = new User({
         companyName,
@@ -48,12 +44,10 @@ const register = async (userData) => {
         mobile,
         password: hashedPassword,
         role: role || 'Company Admin',
-        otp,
-        otpExpires
+        isVerified: true
     });
 
     await user.save();
-    await sendOTPEmail(email, otp, 'register');
 
     return { email };
 };
@@ -203,12 +197,6 @@ const login = async (email, password) => {
         throw new Error('Invalid email or password.');
     }
 
-    if (!user.isVerified) {
-        // We throw a custom error to tell the frontend verification is pending
-        const err = new Error('Email is not verified yet.');
-        err.isNotVerified = true;
-        throw err;
-    }
 
     const token = jwt.sign(
         { id: user._id, email: user.email, role: user.role },

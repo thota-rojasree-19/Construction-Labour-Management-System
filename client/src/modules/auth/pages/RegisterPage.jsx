@@ -69,11 +69,9 @@ export default function RegisterPage() {
         })
         .then((data) => {
             setLoading(false);
-            setAlert({ type: 'success', message: 'Registration successful! Verification OTP sent to your email.' });
-            sessionStorage.setItem('otp_email', email);
-            sessionStorage.setItem('otp_purpose', 'register');
+            setAlert({ type: 'success', message: 'Registration successful! You can now log in.' });
             setTimeout(() => {
-                window.location.hash = '#/verify';
+                window.location.hash = '#/login';
             }, 1500);
         })
         .catch((err) => {
