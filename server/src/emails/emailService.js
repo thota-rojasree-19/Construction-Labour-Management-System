@@ -1,13 +1,24 @@
 const nodemailer = require('nodemailer');
 
+const emailUser = process.env.EMAIL_USER || 'sreeroja004@gmail.com';
 const emailPass = process.env.EMAIL_PASS ? process.env.EMAIL_PASS.replace(/\s+/g, '') : '';
 
-// Setup Nodemailer transporter with Gmail
+// Setup Nodemailer transporter with Gmail SMTP over port 587 (STARTTLS).
+// Using explicit host instead of service:'gmail' to force IPv4 on Render's free tier,
+// which does not support IPv6 (causes ENETUNREACH on port 465).
 const transporter = nodemailer.createTransport({
-    service: 'gmail',
+    host: 'smtp.gmail.com',
+    port: 587,
+    secure: false, // STARTTLS (upgrades to TLS after handshake)
     auth: {
-        user: process.env.EMAIL_USER || 'sreeroja004@gmail.com',
+        user: emailUser,
         pass: emailPass
+    },
+    tls: {
+        rejectUnauthorized: false // Allow self-signed certs in some environments
+    },
+    socketOptions: {
+        family: 4  // Force IPv4 — Render free tier does not support IPv6
     }
 });
 
@@ -24,7 +35,7 @@ const sendOTPEmail = async (email, otp, purpose = 'register') => {
     const subject = isReset ? 'Reset Password Verification OTP' : 'Complete Construction Portal Verification';
 
     const mailOptions = {
-        from: `Smart-Connect CLMS <${process.env.EMAIL_USER || 'sreeroja004@gmail.com'}>`,
+        from: `Smart-Connect CLMS <${emailUser}>`,
         to: email,
         subject: subject,
         html: `
