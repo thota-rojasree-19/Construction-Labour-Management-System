@@ -153,7 +153,7 @@ export default function DashboardPage() {
                     </div>
 
                     {loading ? (
-                        <LoadingSkeleton rows={6} cols={3} />
+                        <LoadingSkeleton rows={6} cols={3} table={false} />
                     ) : (
                         <>
                             {/* Core Statistics Cards */}

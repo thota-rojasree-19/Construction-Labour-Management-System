@@ -362,7 +362,7 @@ export default function ProfileDashboardPage() {
             </div>
 
             {loading ? (
-                <LoadingSkeleton rows={6} cols={4} />
+                <LoadingSkeleton rows={6} cols={4} table={false} />
             ) : (
                 <div className="profile-layout-grid">
                     {/* Left Navigation Card */}

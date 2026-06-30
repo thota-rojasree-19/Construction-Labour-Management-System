@@ -215,7 +215,7 @@ export default function AnalyticsDashboardPage() {
             </div>
 
             {loading ? (
-                <LoadingSkeleton rows={8} cols={6} />
+                <LoadingSkeleton rows={8} cols={6} table={false} />
             ) : (
                 <div className="analytics-container">
                     

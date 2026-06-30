@@ -8,8 +8,8 @@ export default function ActivityTimeline({ activities }) {
             </div>
             <div style={{ flex: 1, overflowY: 'auto', paddingRight: '4px' }}>
                 <ul className="timeline">
-                    {activities.map((act) => (
-                        <li key={act.id} className={`timeline-item ${act.themeClass || 'primary'}`}>
+                    {activities.map((act, idx) => (
+                        <li key={act._id || act.id || idx} className={`timeline-item ${act.themeClass || 'primary'}`}>
                             <div className="timeline-badge"></div>
                             <div className="timeline-content">
                                 <span className="timeline-title">{act.title}</span>

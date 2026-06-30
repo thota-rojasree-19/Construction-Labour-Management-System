@@ -14,9 +14,9 @@ export default function FeatureGrid() {
         <section id="features" className="features">
             <div className="landing-container">
                 <div className="section-header">
-                    <span class="section-tag">Powerful Features</span>
-                    <h2 class="section-title">Built specifically for the construction site</h2>
-                    <p class="section-desc">Traditional HR systems fail on the site. ConstroConnect is engineered to handle dynamic shifts, weather disruptions, and manual payroll calculations.</p>
+                    <span className="section-tag">Powerful Features</span>
+                    <h2 className="section-title">Built specifically for the construction site</h2>
+                    <p className="section-desc">Traditional HR systems fail on the site. ConstroConnect is engineered to handle dynamic shifts, weather disruptions, and manual payroll calculations.</p>
                 </div>
 
                 <div className="features-grid">
