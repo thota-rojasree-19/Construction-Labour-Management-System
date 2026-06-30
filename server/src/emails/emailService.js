@@ -10,15 +10,13 @@ const transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
     port: 587,
     secure: false, // STARTTLS (upgrades to TLS after handshake)
+    family: 4, // Force IPv4 — Render free tier does not support IPv6
     auth: {
         user: emailUser,
         pass: emailPass
     },
     tls: {
         rejectUnauthorized: false // Allow self-signed certs in some environments
-    },
-    socketOptions: {
-        family: 4  // Force IPv4 — Render free tier does not support IPv6
     }
 });
 
